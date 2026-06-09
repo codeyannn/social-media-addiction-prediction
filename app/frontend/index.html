@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediksi Kecanduan Media Sosial</title>
+    <meta name="description" content="Prediksi tingkat kecanduan media sosial menggunakan Machine Learning. Analisis pola penggunaan gadget dan perilaku digital Anda.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="bg-glow bg-glow-1"></div>
+    <div class="bg-glow bg-glow-2"></div>
+    <div class="bg-glow bg-glow-3"></div>
+
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <span class="logo-icon"></span>
+                <h1>SocialSense<span class="logo-ai">AI</span></h1>
+            </div>
+            <div class="model-badge" id="modelBadge">
+                <span class="badge-dot"></span>
+                <span id="modelName">Loading...</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <h2 class="hero-title">Analisis Tingkat Kecanduan <span class="gradient-text">Media Sosial</span></h2>
+            <p class="hero-sub">Prediksi berbasis Machine Learning dari pola penggunaan gadget dan perilaku digital Anda</p>
+        </section>
+
+        <form id="predictionForm" class="form-grid">
+            <div class="card card-personal" id="sectionPersonal">
+                <div class="card-header">
+                    <span class="card-icon"></span>
+                    <h3>Data Pribadi</h3>
+                </div>
+                <div class="card-body">
+                    <div class="field">
+                        <label for="usia">Usia</label>
+                        <input type="number" id="usia" min="10" max="60" value="20" required>
+                    </div>
+                    <div class="field">
+                        <label>Status</label>
+                        <div class="radio-group" id="statusGroup">
+                            <label class="radio-btn active"><input type="radio" name="status" value="Mahasiswa" checked><span>Mahasiswa</span></label>
+                            <label class="radio-btn"><input type="radio" name="status" value="Pelajar"><span>Pelajar</span></label>
+                            <label class="radio-btn"><input type="radio" name="status" value="Pekerja"><span>Pekerja</span></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card card-gadget" id="sectionGadget">
+                <div class="card-header">
+                    <span class="card-icon"></span>
+                    <h3>Penggunaan Gadget</h3>
+                </div>
+                <div class="card-body">
+                    <div class="field">
+                        <label for="screenTime">Screen Time / Hari</label>
+                        <select id="screenTime">
+                            <option value="1.0">&lt; 2 jam</option>
+                            <option value="3.0">2-4 jam</option>
+                            <option value="5.0" selected>4-6 jam</option>
+                            <option value="7.0">6-8 jam</option>
+                            <option value="10.0">&gt; 8 jam</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label for="hpFreq">Frekuensi Buka HP / Hari</label>
+                        <select id="hpFreq">
+                            <option value="10.0">&lt; 20 kali</option>
+                            <option value="35.0" selected>20-50 kali</option>
+                            <option value="75.0">50-100 kali</option>
+                            <option value="120.0">&gt; 100 kali</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label for="appCount">Jumlah Aplikasi Medsos</label>
+                        <select id="appCount">
+                            <option value="1.5">1-2</option>
+                            <option value="3.5" selected>3-4</option>
+                            <option value="5.5">5-6</option>
+                            <option value="8.5">&gt; 7</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card card-sleep" id="sectionSleep">
+                <div class="card-header">
+                    <span class="card-icon"></span>
+                    <h3>Pola Tidur</h3>
+                </div>
+                <div class="card-body">
+                    <div class="field">
+                        <label for="sleepDur">Durasi Tidur / Hari</label>
+                        <select id="sleepDur">
+                            <option value="4.0">3-5 jam</option>
+                            <option value="6.0" selected>5-7 jam</option>
+                            <option value="9.0">&gt; 8 jam</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label for="sleepTime">Jam Tidur</label>
+                        <div class="range-wrapper">
+                            <input type="range" id="sleepTime" min="0" max="24" step="0.5" value="23">
+                            <span class="range-value" id="sleepTimeVal">23:00</span>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label for="sleepLate">Tidur Larut Karena Medsos</label>
+                        <select id="sleepLate">
+                            <option value="0">Tidak pernah</option>
+                            <option value="1">Jarang</option>
+                            <option value="2" selected>Sering</option>
+                            <option value="3">Sering sekali</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card card-focus" id="sectionFocus">
+                <div class="card-header">
+                    <span class="card-icon"></span>
+                    <h3>Fokus & Produktivitas</h3>
+                </div>
+                <div class="card-body">
+                    <div class="field">
+                        <label for="focusHours">Jam Fokus Belajar/Kerja</label>
+                        <div class="range-wrapper">
+                            <input type="range" id="focusHours" min="0" max="12" step="0.5" value="4">
+                            <span class="range-value" id="focusHoursVal">4.0 jam</span>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label for="diffFocus">Sulit Fokus Tanpa Cek HP</label>
+                        <select id="diffFocus">
+                            <option value="0">Sangat mudah</option>
+                            <option value="1">Mudah</option>
+                            <option value="2" selected>Sedang</option>
+                            <option value="3">Sulit</option>
+                            <option value="4">Sulit sekali</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label for="openSosmed">Buka Medsos Saat Belajar/Kerja</label>
+                        <select id="openSosmed">
+                            <option value="0">Tidak pernah</option>
+                            <option value="1">Jarang</option>
+                            <option value="2" selected>Sering</option>
+                            <option value="3">Sering sekali</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card card-behavior" id="sectionBehavior">
+                <div class="card-header">
+                    <span class="card-icon"></span>
+                    <h3>Perilaku Digital</h3>
+                </div>
+                <div class="card-body">
+                    <div class="field">
+                        <label>Cemas Jika Jauh dari HP</label>
+                        <div class="toggle-group">
+                            <label class="toggle-btn" id="toggleCemas">
+                                <input type="checkbox" id="cemas">
+                                <span class="toggle-slider"></span>
+                                <span class="toggle-label" id="cemasLabel">Tidak</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label>Buka Medsos Tanpa Tujuan</label>
+                        <div class="toggle-group">
+                            <label class="toggle-btn" id="toggleNoPurpose">
+                                <input type="checkbox" id="noPurpose" checked>
+                                <span class="toggle-slider"></span>
+                                <span class="toggle-label" id="noPurposeLabel">Iya</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label>Medsos Mengganggu Belajar/Kerja</label>
+                        <div class="toggle-group">
+                            <label class="toggle-btn" id="toggleDisruptive">
+                                <input type="checkbox" id="disruptive">
+                                <span class="toggle-slider"></span>
+                                <span class="toggle-label" id="disruptiveLabel">Tidak</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label>Pernah Coba Kurangi Tapi Gagal</label>
+                        <div class="toggle-group">
+                            <label class="toggle-btn" id="toggleTryReduce">
+                                <input type="checkbox" id="tryReduce">
+                                <span class="toggle-slider"></span>
+                                <span class="toggle-label" id="tryReduceLabel">Tidak</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card card-sosmed" id="sectionSosmed">
+                <div class="card-header">
+                    <span class="card-icon"></span>
+                    <h3>Media Sosial Aktif</h3>
+                </div>
+                <div class="card-body">
+                    <div class="sosmed-grid">
+                        <label class="sosmed-chip active" data-platform="instagram">
+                            <input type="checkbox" id="sosmedInstagram" checked>
+                            <span class="chip-icon"></span>
+                            <span>Instagram</span>
+                        </label>
+                        <label class="sosmed-chip active" data-platform="tiktok">
+                            <input type="checkbox" id="sosmedTiktok" checked>
+                            <span class="chip-icon"></span>
+                            <span>TikTok</span>
+                        </label>
+                        <label class="sosmed-chip active" data-platform="youtube">
+                            <input type="checkbox" id="sosmedYoutube" checked>
+                            <span class="chip-icon"></span>
+                            <span>YouTube</span>
+                        </label>
+                        <label class="sosmed-chip" data-platform="twitter">
+                            <input type="checkbox" id="sosmedTwitter">
+                            <span class="chip-icon"></span>
+                            <span>X/Twitter</span>
+                        </label>
+                        <label class="sosmed-chip" data-platform="facebook">
+                            <input type="checkbox" id="sosmedFacebook">
+                            <span class="chip-icon"></span>
+                            <span>Facebook</span>
+                        </label>
+                        <label class="sosmed-chip" data-platform="threads">
+                            <input type="checkbox" id="sosmedThreads">
+                            <span class="chip-icon"></span>
+                            <span>Threads</span>
+                        </label>
+                        <label class="sosmed-chip" data-platform="whatsapp">
+                            <input type="checkbox" id="sosmedWhatsapp">
+                            <span class="chip-icon"></span>
+                            <span>WhatsApp</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="predict-section">
+                <button type="submit" class="predict-btn" id="predictBtn">
+                    <span class="btn-icon"></span>
+                    <span class="btn-text">Analisis Sekarang</span>
+                    <span class="btn-loading" id="btnLoading">
+                        <span class="spinner"></span>
+                        Menganalisis...
+                    </span>
+                </button>
+            </div>
+        </form>
+
+        <section class="result-section" id="resultSection" style="display:none;">
+            <div class="result-card" id="resultCard">
+                <div class="result-header">
+                    <h3>Hasil Analisis</h3>
+                    <button class="close-btn" id="closeResult">&times;</button>
+                </div>
+                <div class="result-body">
+                    <div class="result-main">
+                        <div class="result-gauge" id="resultGauge">
+                            <div class="gauge-ring">
+                                <svg viewBox="0 0 120 120">
+                                    <circle class="gauge-bg" cx="60" cy="60" r="54" />
+                                    <circle class="gauge-fill" id="gaugeFill" cx="60" cy="60" r="54" />
+                                </svg>
+                                <div class="gauge-center">
+                                    <span class="gauge-emoji" id="gaugeEmoji"></span>
+                                    <span class="gauge-label" id="gaugeLabel">Sedang</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="result-info">
+                            <div class="confidence-value" id="confidenceValue">0%</div>
+                            <div class="confidence-label">Confidence</div>
+                        </div>
+                    </div>
+                    <div class="proba-bars" id="probaBars"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>Machine Learning Project — Prediksi Kecanduan Media Sosial</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

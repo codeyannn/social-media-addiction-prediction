@@ -1,0 +1,301 @@
+{
+  "model_name": "DecisionTree",
+  "scaler_name": "MinMaxScaler",
+  "test_accuracy": 0.7778,
+  "test_f1_macro": 0.7374,
+  "train_accuracy": 1.0,
+  "cv_mean_f1": 0.8199,
+  "gap": 0.2222,
+  "class_names": {
+    "0": "Rendah",
+    "1": "Sedang",
+    "2": "Tinggi"
+  },
+  "feature_names": [
+    "Usia",
+    "Rata_rata_screen_time_perhari",
+    "Frekuensi_membuka_HP_perhari",
+    "Jumlah_aplikasi_media_sosial_aktif_yang_digunakan",
+    "Durasi_waktu_tidur_perhari",
+    "Jam_tidur_hours",
+    "Tidur_larut_karena_sosial_media",
+    "Jam_waktu_belajar_bekerja_fokus_sehari",
+    "Sulit_fokus_tanpa_mengecek_HP",
+    "Sering_membuka_media_sosial_saat_belajar_bekerja",
+    "Merasa_cemas_jika_jauh_dari_HP",
+    "Sering_membuka_sosial_media_tanpa_tujuan_jelas",
+    "Penggunaan_media_sosial_mengganggu_belajar_kerja",
+    "Pernah_mencoba_mengurangi_penggunaan_media_sosial_namun_gagal",
+    "Status_Mahasiswa",
+    "Status_Pelajar",
+    "Status_Pekerja",
+    "Sosmed_Instagram",
+    "Sosmed_Tiktok",
+    "Sosmed_Youtube",
+    "Sosmed_X_twitter",
+    "Sosmed_Facebook",
+    "Sosmed_Threads",
+    "Sosmed_WhatsApp"
+  ],
+  "feature_info": {
+    "Usia": {
+      "min": 15.0,
+      "max": 54.0,
+      "unique_values": [
+        15.0,
+        16.0,
+        17.0,
+        18.0,
+        19.0,
+        20.0,
+        21.0,
+        22.0,
+        24.0,
+        50.0,
+        54.0
+      ],
+      "dtype": "int64"
+    },
+    "Rata_rata_screen_time_perhari": {
+      "min": 1.0,
+      "max": 10.0,
+      "unique_values": [
+        1.0,
+        3.0,
+        5.0,
+        7.0,
+        10.0
+      ],
+      "dtype": "float64"
+    },
+    "Frekuensi_membuka_HP_perhari": {
+      "min": 10.0,
+      "max": 120.0,
+      "unique_values": [
+        10.0,
+        35.0,
+        75.0,
+        120.0
+      ],
+      "dtype": "float64"
+    },
+    "Jumlah_aplikasi_media_sosial_aktif_yang_digunakan": {
+      "min": 1.5,
+      "max": 8.5,
+      "unique_values": [
+        1.5,
+        3.5,
+        5.5,
+        8.5
+      ],
+      "dtype": "float64"
+    },
+    "Durasi_waktu_tidur_perhari": {
+      "min": 4.0,
+      "max": 9.0,
+      "unique_values": [
+        4.0,
+        6.0,
+        9.0
+      ],
+      "dtype": "float64"
+    },
+    "Jam_tidur_hours": {
+      "min": 0.0,
+      "max": 23.5,
+      "unique_values": [
+        0.0,
+        0.5,
+        1.0,
+        1.5,
+        2.0,
+        3.0,
+        12.0,
+        20.0,
+        21.0,
+        22.0,
+        22.5,
+        23.0,
+        23.5
+      ],
+      "dtype": "float64"
+    },
+    "Tidur_larut_karena_sosial_media": {
+      "min": 0.0,
+      "max": 3.0,
+      "unique_values": [
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "dtype": "int64"
+    },
+    "Jam_waktu_belajar_bekerja_fokus_sehari": {
+      "min": 1.0,
+      "max": 8.0,
+      "unique_values": [
+        1.0,
+        2.0,
+        3.0,
+        3.5,
+        4.0,
+        5.0,
+        6.0,
+        7.0,
+        8.0
+      ],
+      "dtype": "float64"
+    },
+    "Sulit_fokus_tanpa_mengecek_HP": {
+      "min": 0.0,
+      "max": 4.0,
+      "unique_values": [
+        0.0,
+        1.0,
+        2.0,
+        3.0,
+        4.0
+      ],
+      "dtype": "int64"
+    },
+    "Sering_membuka_media_sosial_saat_belajar_bekerja": {
+      "min": 0.0,
+      "max": 3.0,
+      "unique_values": [
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "dtype": "int64"
+    },
+    "Merasa_cemas_jika_jauh_dari_HP": {
+      "min": 0.0,
+      "max": 1.0,
+      "unique_values": [
+        0.0,
+        1.0
+      ],
+      "dtype": "int64"
+    },
+    "Sering_membuka_sosial_media_tanpa_tujuan_jelas": {
+      "min": 0.0,
+      "max": 1.0,
+      "unique_values": [
+        0.0,
+        1.0
+      ],
+      "dtype": "int64"
+    },
+    "Penggunaan_media_sosial_mengganggu_belajar_kerja": {
+      "min": 0.0,
+      "max": 1.0,
+      "unique_values": [
+        0.0,
+        1.0
+      ],
+      "dtype": "int64"
+    },
+    "Pernah_mencoba_mengurangi_penggunaan_media_sosial_namun_gagal": {
+      "min": 0.0,
+      "max": 1.0,
+      "unique_values": [
+        0.0,
+        1.0
+      ],
+      "dtype": "int64"
+    },
+    "Status_Mahasiswa": {
+      "min": 0.0,
+      "max": 1.0,
+      "unique_values": [
+        0.0,
+        1.0
+      ],
+      "dtype": "int64"
+    },
+    "Status_Pelajar": {
+      "min": 0.0,
+      "max": 1.0,
+      "unique_values": [
+        0.0,
+        1.0
+      ],
+      "dtype": "int64"
+    },
+    "Status_Pekerja": {
+      "min": 0.0,
+      "max": 1.0,
+      "unique_values": [
+        0.0,
+        1.0
+      ],
+      "dtype": "int64"
+    },
+    "Sosmed_Instagram": {
+      "min": 0.0,
+      "max": 1.0,
+      "unique_values": [
+        0.0,
+        1.0
+      ],
+      "dtype": "int64"
+    },
+    "Sosmed_Tiktok": {
+      "min": 0.0,
+      "max": 1.0,
+      "unique_values": [
+        0.0,
+        1.0
+      ],
+      "dtype": "int64"
+    },
+    "Sosmed_Youtube": {
+      "min": 0.0,
+      "max": 1.0,
+      "unique_values": [
+        0.0,
+        1.0
+      ],
+      "dtype": "int64"
+    },
+    "Sosmed_X_twitter": {
+      "min": 0.0,
+      "max": 1.0,
+      "unique_values": [
+        0.0,
+        1.0
+      ],
+      "dtype": "int64"
+    },
+    "Sosmed_Facebook": {
+      "min": 0.0,
+      "max": 1.0,
+      "unique_values": [
+        0.0,
+        1.0
+      ],
+      "dtype": "int64"
+    },
+    "Sosmed_Threads": {
+      "min": 0.0,
+      "max": 1.0,
+      "unique_values": [
+        0.0,
+        1.0
+      ],
+      "dtype": "int64"
+    },
+    "Sosmed_WhatsApp": {
+      "min": 0.0,
+      "max": 1.0,
+      "unique_values": [
+        0.0,
+        1.0
+      ],
+      "dtype": "int64"
+    }
+  },
+  "target_column": "Tingkat_kecanduan_media_sosial_Anda"
+}
