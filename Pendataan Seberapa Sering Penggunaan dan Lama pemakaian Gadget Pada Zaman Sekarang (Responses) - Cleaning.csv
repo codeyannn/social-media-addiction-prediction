@@ -11,7 +11,7 @@ Usia,Status,Rata_rata_screen_time_perhari,Frekuensi_membuka_HP_perhari,Jumlah_ap
 20,Mahasiswa,> 8 jam,< 20,5-6,"Instagram, Facebook, Youtube",5-7 jam,22:30,Sering,4,Sedang,Sering,Tidak,Iya,Iya,Iya,Sedang
 21,Mahasiswa,6-8 jam,20 - 50,3-4,"Instagram, X/twitter, Tiktok, YouTube, WhatsApp",> 8 jam,21:00,Jarang,3,Sedang,Sering sekali,Tidak,Iya,Tidak,Iya,Sedang
 20,Mahasiswa,4-6 jam,50 - 100,3-4,"Instagram, Tiktok, Youtube",3-5 jam,0:00,Sering,2,Sulit,Sering,Iya,Iya,Iya,Iya,Tinggi
-21,Mahasiswa,> 8 jam,20 - 50,3-4,"Instagram, X/twitter, Tiktok, Whatsapp",3-5 jam,1:00,Jarang,3,Mudah,Jarang,Tidak,Iya,Tidak,Tidak,Rendah
+21,Mahasiswa,> 8 jam,20 - 50,3-4,"Instagram, X/twitter, Tiktok, WhatsApp",3-5 jam,1:00,Jarang,3,Mudah,Jarang,Tidak,Iya,Tidak,Tidak,Rendah
 22,Mahasiswa,4-6 jam,20 - 50,3-4,"Instagram, Tiktok",5-7 jam,0:00,Sering,2,Sedang,Sering,Tidak,Iya,Iya,Tidak,Sedang
 20,Pekerja,4-6 jam,20 - 50,3-4,"Tiktok, Youtube",5-7 jam,0:00,Sering,8,Sedang,Jarang,Tidak,Iya,Iya,Tidak,Sedang
 19,Mahasiswa,6-8 jam,50 - 100,3-4,"Instagram, X/twitter, Tiktok, Youtube",5-7 jam,0:30,Sering,6,Sedang,Jarang,Tidak,Iya,Tidak,Tidak,Sedang
@@ -31,7 +31,7 @@ Usia,Status,Rata_rata_screen_time_perhari,Frekuensi_membuka_HP_perhari,Jumlah_ap
 22,Pekerja,> 8 jam,< 20,1-2,"Instagram, Facebook, Tiktok",5-7 jam,22:00,Jarang,7,Mudah,Sering,Tidak,Tidak,Tidak,Tidak,Rendah
 19,Mahasiswa,> 8 jam,20 - 50,5-6,"X/twitter, Youtube",5-7 jam,23:30,Sering sekali,2,Sedang,Sering,Iya,Iya,Tidak,Iya,Tinggi
 24,Mahasiswa,4-6 jam,20 - 50,5-6,"Instagram, X/twitter, Threads",5-7 jam,1:00,Sering sekali,7,Sulit sekali,Sering sekali,Iya,Iya,Iya,Iya,Sedang
-21,Mahasiswa,6-8 jam,50 - 100,> 7,"Instagram, X/twitter, Tiktok, Youtube, WhatsApp ",3-5 jam,2:00,Sering,4,Sedang,Sering,Iya,Iya,Tidak,Iya,Sedang
+21,Mahasiswa,6-8 jam,50 - 100,> 7,"Instagram, X/twitter, Tiktok, Youtube, WhatsApp",3-5 jam,2:00,Sering,4,Sedang,Sering,Iya,Iya,Tidak,Iya,Sedang
 20,Mahasiswa,2-4 jam,20 - 50,1-2,"Instagram, Youtube",5-7 jam,0:00,Sering sekali,2,Sedang,Sering,Tidak,Iya,Iya,Iya,Sedang
 54,Pekerja,< 2 jam,< 20,1-2,"Tiktok, Youtube",5-7 jam,22:00,Tidak pernah,3,Sangat mudah,Tidak pernah,Tidak,Tidak,Tidak,Tidak,Rendah
 20,Mahasiswa,6-8 jam,< 20,3-4,"Instagram, X/twitter, Tiktok, Youtube",3-5 jam,3:00,Sering sekali,2,Sangat mudah,Jarang,Tidak,Iya,Iya,Tidak,Sedang
@@ -41,7 +41,7 @@ Usia,Status,Rata_rata_screen_time_perhari,Frekuensi_membuka_HP_perhari,Jumlah_ap
 20,Mahasiswa,6-8 jam,20 - 50,3-4,"X/twitter, Tiktok",5-7 jam,22:30,Sering sekali,3,Sulit,Sering,Iya,Iya,Iya,Iya,Tinggi
 20,Mahasiswa,2-4 jam,20 - 50,3-4,"Instagram, Tiktok",3-5 jam,1:30,Sering,2 -5,Sulit,Jarang,Iya,Iya,Tidak,Iya,Sedang
 19,Mahasiswa,6-8 jam,20 - 50,1-2,Tiktok,5-7 jam,23:00,Sering,5,Sedang,Jarang,Tidak,Iya,Iya,Tidak,Sedang
-19,Mahasiswa,6-8 jam,50 - 100,3-4,Youtube,5-7 jam,23:00,Sering,4,Sedang,Sering,Iya,Iya,Iya,Iya,Sedang
+19,Mahasiswa,6-8 jam,50 - 100,3-4,YouTube,5-7 jam,23:00,Sering,4,Sedang,Sering,Iya,Iya,Iya,Iya,Sedang
 20,Mahasiswa,> 8 jam,20 - 50,3-4,"Instagram, X/twitter, Tiktok",3-5 jam,1:00,Sering,1,Sedang,Sering,Iya,Iya,Tidak,Tidak,Sedang
 19,Mahasiswa,> 8 jam,20 - 50,5-6,"Instagram, Facebook, Youtube",5-7 jam,23:00,Jarang,4,Sulit,Sering,Tidak,Iya,Iya,Iya,Sedang
 19,Mahasiswa,6-8 jam,50 - 100,3-4,"Instagram, X/twitter, Youtube",5-7 jam,22:00,Jarang,3,Mudah,Jarang,Iya,Tidak,Tidak,Iya,Rendah
@@ -57,3 +57,7 @@ Usia,Status,Rata_rata_screen_time_perhari,Frekuensi_membuka_HP_perhari,Jumlah_ap
 20,Mahasiswa,> 8 jam,20 - 50,> 7,"Instagram, Tiktok, Youtube",5-7 jam,20:00,Jarang,3,Sulit,Sering,Iya,Iya,Iya,Iya,Tinggi
 19,Mahasiswa,2-4 jam,50 - 100,3-4,"Instagram, Youtube, Threads",3-5 jam,0:00,Sering,2,Sedang,Jarang,Iya,Iya,Iya,Iya,Sedang
 20,Mahasiswa,4-6 jam,20 - 50,3-4,"Instagram, Tiktok, Youtube",5-7 jam,22:00,Jarang,4,Mudah,Jarang,Tidak,Tidak,Iya,Iya,Rendah
+20,Pelajar,6-8 jam,50 - 100,3-4,"Instagram, X/twitter, Tiktok",5-7 jam,23:00,Sering,1,Sulit sekali,Sering,Iya,Iya,Iya,Iya,Tinggi
+20,Mahasiswa,6-8 jam,20 - 50,3-4,"Instagram, Tiktok, Youtube",5-7 jam,23:00,Sering,3,Sedang,Sering,Iya,Iya,Tidak,Tidak,Sedang
+20,Mahasiswa,4-6 jam,20 - 50,3-4,"Instagram, Youtube, WhatsApp ",5-7 jam,21:00,Jarang,2,Mudah,Jarang,Iya,Iya,Iya,Iya,Sedang
+20,Mahasiswa,6-8 jam,20 - 50,3-4,"Instagram, Tiktok, Youtube",5-7 jam,23:00,Sering,10,Sedang,Jarang,Tidak,Tidak,Tidak,Tidak,Sedang
