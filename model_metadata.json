@@ -1,11 +1,133 @@
 {
-  "model_name": "DecisionTree",
-  "scaler_name": "MinMaxScaler",
-  "test_accuracy": 0.7778,
-  "test_f1_macro": 0.7374,
-  "train_accuracy": 1.0,
-  "cv_mean_f1": 0.8199,
-  "gap": 0.2222,
+  "model_name": "LogisticRegression",
+  "scaler_name": "StandardScaler",
+  "feature_selection": "SelectKBest(f_classif)",
+  "k_features": 10,
+  "selected_feature_count": 10,
+  "selected_feature_names": [
+    "Rata_rata_screen_time_perhari",
+    "Frekuensi_membuka_HP_perhari",
+    "Jumlah_aplikasi_media_sosial_aktif_yang_digunakan",
+    "Tidur_larut_karena_sosial_media",
+    "Sulit_fokus_tanpa_mengecek_HP",
+    "Merasa_cemas_jika_jauh_dari_HP",
+    "Sering_membuka_sosial_media_tanpa_tujuan_jelas",
+    "Penggunaan_media_sosial_mengganggu_belajar_kerja",
+    "Pernah_mencoba_mengurangi_penggunaan_media_sosial_namun_gagal",
+    "Sosmed_X_twitter"
+  ],
+  "feature_scores": [
+    {
+      "feature": "Merasa_cemas_jika_jauh_dari_HP",
+      "score": 18.159244
+    },
+    {
+      "feature": "Sulit_fokus_tanpa_mengecek_HP",
+      "score": 15.830958
+    },
+    {
+      "feature": "Pernah_mencoba_mengurangi_penggunaan_media_sosial_namun_gagal",
+      "score": 11.348007
+    },
+    {
+      "feature": "Tidur_larut_karena_sosial_media",
+      "score": 10.291785
+    },
+    {
+      "feature": "Sering_membuka_sosial_media_tanpa_tujuan_jelas",
+      "score": 9.358826
+    },
+    {
+      "feature": "Penggunaan_media_sosial_mengganggu_belajar_kerja",
+      "score": 8.240865
+    },
+    {
+      "feature": "Frekuensi_membuka_HP_perhari",
+      "score": 6.914598
+    },
+    {
+      "feature": "Rata_rata_screen_time_perhari",
+      "score": 6.525569
+    },
+    {
+      "feature": "Jumlah_aplikasi_media_sosial_aktif_yang_digunakan",
+      "score": 6.492756
+    },
+    {
+      "feature": "Sosmed_X_twitter",
+      "score": 5.078635
+    },
+    {
+      "feature": "Usia",
+      "score": 5.037488
+    },
+    {
+      "feature": "Sering_membuka_media_sosial_saat_belajar_bekerja",
+      "score": 4.222696
+    },
+    {
+      "feature": "Sosmed_Tiktok",
+      "score": 2.83028
+    },
+    {
+      "feature": "Status_Pekerja",
+      "score": 2.342681
+    },
+    {
+      "feature": "Sosmed_Youtube",
+      "score": 2.175807
+    },
+    {
+      "feature": "Jam_waktu_belajar_bekerja_fokus_sehari",
+      "score": 1.891498
+    },
+    {
+      "feature": "Status_Mahasiswa",
+      "score": 1.248407
+    },
+    {
+      "feature": "Sosmed_Threads",
+      "score": 1.14157
+    },
+    {
+      "feature": "Sosmed_WhatsApp",
+      "score": 0.994131
+    },
+    {
+      "feature": "Jam_tidur_hours",
+      "score": 0.785076
+    },
+    {
+      "feature": "Status_Pelajar",
+      "score": 0.597681
+    },
+    {
+      "feature": "Sosmed_Facebook",
+      "score": 0.400361
+    },
+    {
+      "feature": "Sosmed_Instagram",
+      "score": 0.353727
+    },
+    {
+      "feature": "Durasi_waktu_tidur_perhari",
+      "score": 0.073525
+    }
+  ],
+  "test_size": 0.2,
+  "train_size": 80,
+  "test_rows": 20,
+  "cv_splits": 5,
+  "test_accuracy": 0.8,
+  "test_f1_macro": 0.7662,
+  "test_precision_macro": 0.7667,
+  "test_recall_macro": 0.8611,
+  "test_balanced_accuracy": 0.8611,
+  "train_f1_macro": 0.7944,
+  "cv_mean_f1": 0.6741,
+  "cv_std_f1": 0.0945,
+  "gap_f1": 0.0282,
+  "selection_score": 0.611,
   "class_names": {
     "0": "Rendah",
     "1": "Sedang",
@@ -51,6 +173,10 @@
         21.0,
         22.0,
         24.0,
+        28.0,
+        32.0,
+        35.0,
+        48.0,
         50.0,
         54.0
       ],
@@ -91,9 +217,10 @@
       "dtype": "float64"
     },
     "Durasi_waktu_tidur_perhari": {
-      "min": 4.0,
+      "min": 2.0,
       "max": 9.0,
       "unique_values": [
+        2.0,
         4.0,
         6.0,
         9.0
@@ -113,7 +240,9 @@
         12.0,
         20.0,
         21.0,
+        21.5,
         22.0,
+        22.25,
         22.5,
         23.0,
         23.5
@@ -133,7 +262,7 @@
     },
     "Jam_waktu_belajar_bekerja_fokus_sehari": {
       "min": 1.0,
-      "max": 8.0,
+      "max": 10.0,
       "unique_values": [
         1.0,
         2.0,
@@ -143,7 +272,8 @@
         5.0,
         6.0,
         7.0,
-        8.0
+        8.0,
+        10.0
       ],
       "dtype": "float64"
     },
@@ -297,5 +427,157 @@
       "dtype": "int64"
     }
   },
-  "target_column": "Tingkat_kecanduan_media_sosial_Anda"
+  "target_column": "Tingkat_kecanduan_media_sosial_Anda",
+  "top_models": [
+    {
+      "model": "LogisticRegression",
+      "scaler": "StandardScaler",
+      "k_features": 10,
+      "cv_mean_f1": 0.6741,
+      "cv_std_f1": 0.0945,
+      "train_f1_macro": 0.7944,
+      "test_f1_macro": 0.7662,
+      "test_accuracy": 0.8,
+      "test_precision_macro": 0.7667,
+      "test_recall_macro": 0.8611,
+      "test_balanced_accuracy": 0.8611,
+      "gap_f1": 0.0282,
+      "selection_score": 0.611
+    },
+    {
+      "model": "SGD",
+      "scaler": "MinMaxScaler",
+      "k_features": 8,
+      "cv_mean_f1": 0.6424,
+      "cv_std_f1": 0.1249,
+      "train_f1_macro": 0.6668,
+      "test_f1_macro": 0.6845,
+      "test_accuracy": 0.7,
+      "test_precision_macro": 0.7202,
+      "test_recall_macro": 0.8056,
+      "test_balanced_accuracy": 0.8056,
+      "gap_f1": 0.0177,
+      "selection_score": 0.5925
+    },
+    {
+      "model": "SGD",
+      "scaler": "StandardScaler",
+      "k_features": 8,
+      "cv_mean_f1": 0.6152,
+      "cv_std_f1": 0.0493,
+      "train_f1_macro": 0.6985,
+      "test_f1_macro": 0.7333,
+      "test_accuracy": 0.75,
+      "test_precision_macro": 0.7286,
+      "test_recall_macro": 0.7778,
+      "test_balanced_accuracy": 0.7778,
+      "gap_f1": 0.0349,
+      "selection_score": 0.5771
+    },
+    {
+      "model": "LogisticRegression",
+      "scaler": "MinMaxScaler",
+      "k_features": 15,
+      "cv_mean_f1": 0.6208,
+      "cv_std_f1": 0.0628,
+      "train_f1_macro": 0.7129,
+      "test_f1_macro": 0.675,
+      "test_accuracy": 0.75,
+      "test_precision_macro": 0.6894,
+      "test_recall_macro": 0.6944,
+      "test_balanced_accuracy": 0.6944,
+      "gap_f1": 0.0379,
+      "selection_score": 0.5758
+    },
+    {
+      "model": "LogisticRegression",
+      "scaler": "StandardScaler",
+      "k_features": 8,
+      "cv_mean_f1": 0.6383,
+      "cv_std_f1": 0.1157,
+      "train_f1_macro": 0.7351,
+      "test_f1_macro": 0.8151,
+      "test_accuracy": 0.85,
+      "test_precision_macro": 0.803,
+      "test_recall_macro": 0.8889,
+      "test_balanced_accuracy": 0.8889,
+      "gap_f1": 0.08,
+      "selection_score": 0.5736
+    },
+    {
+      "model": "LogisticRegression",
+      "scaler": "StandardScaler",
+      "k_features": 12,
+      "cv_mean_f1": 0.6346,
+      "cv_std_f1": 0.0643,
+      "train_f1_macro": 0.7893,
+      "test_f1_macro": 0.7662,
+      "test_accuracy": 0.8,
+      "test_precision_macro": 0.7667,
+      "test_recall_macro": 0.8611,
+      "test_balanced_accuracy": 0.8611,
+      "gap_f1": 0.0231,
+      "selection_score": 0.5734
+    },
+    {
+      "model": "SGD",
+      "scaler": "MinMaxScaler",
+      "k_features": 12,
+      "cv_mean_f1": 0.6371,
+      "cv_std_f1": 0.0946,
+      "train_f1_macro": 0.7805,
+      "test_f1_macro": 0.612,
+      "test_accuracy": 0.7,
+      "test_precision_macro": 0.6825,
+      "test_recall_macro": 0.6111,
+      "test_balanced_accuracy": 0.6111,
+      "gap_f1": 0.1686,
+      "selection_score": 0.5682
+    },
+    {
+      "model": "LogisticRegression",
+      "scaler": "MinMaxScaler",
+      "k_features": 10,
+      "cv_mean_f1": 0.6079,
+      "cv_std_f1": 0.0715,
+      "train_f1_macro": 0.6687,
+      "test_f1_macro": 0.6845,
+      "test_accuracy": 0.7,
+      "test_precision_macro": 0.7202,
+      "test_recall_macro": 0.8056,
+      "test_balanced_accuracy": 0.8056,
+      "gap_f1": 0.0158,
+      "selection_score": 0.5676
+    },
+    {
+      "model": "Bagging",
+      "scaler": "NoScaler",
+      "k_features": 12,
+      "cv_mean_f1": 0.6246,
+      "cv_std_f1": 0.0829,
+      "train_f1_macro": 0.7482,
+      "test_f1_macro": 0.7141,
+      "test_accuracy": 0.8,
+      "test_precision_macro": 0.7222,
+      "test_recall_macro": 0.7222,
+      "test_balanced_accuracy": 0.7222,
+      "gap_f1": 0.034,
+      "selection_score": 0.5647
+    },
+    {
+      "model": "Bagging",
+      "scaler": "MinMaxScaler",
+      "k_features": 12,
+      "cv_mean_f1": 0.6246,
+      "cv_std_f1": 0.0829,
+      "train_f1_macro": 0.7482,
+      "test_f1_macro": 0.7141,
+      "test_accuracy": 0.8,
+      "test_precision_macro": 0.7222,
+      "test_recall_macro": 0.7222,
+      "test_balanced_accuracy": 0.7222,
+      "gap_f1": 0.034,
+      "selection_score": 0.5647
+    }
+  ]
 }
