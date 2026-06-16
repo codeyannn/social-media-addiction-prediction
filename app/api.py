@@ -61,10 +61,15 @@ def model_info():
     return {
         "model_name": metadata["model_name"],
         "scaler_name": metadata["scaler_name"],
+        "feature_selection": metadata.get("feature_selection"),
+        "k_features": metadata.get("k_features"),
+        "selected_feature_names": metadata.get("selected_feature_names", []),
         "test_accuracy": metadata["test_accuracy"],
         "test_f1_macro": metadata["test_f1_macro"],
-        "train_accuracy": metadata["train_accuracy"],
+        "train_f1_macro": metadata.get("train_f1_macro", metadata.get("train_accuracy")),
         "cv_mean_f1": metadata["cv_mean_f1"],
+        "cv_std_f1": metadata.get("cv_std_f1"),
+        "gap_f1": metadata.get("gap_f1"),
         "class_names": CLASS_NAMES,
     }
 

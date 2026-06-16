@@ -1,9 +1,6 @@
 import csv
-import random
 import os
-
-# Set random seed for reproducibility of train/test split
-random.seed(42)
+from sklearn.model_selection import train_test_split
 
 # File paths
 workspace_dir = os.path.dirname(os.path.abspath(__file__))
@@ -254,13 +251,14 @@ with open(data_gadget_file, mode='w', encoding='utf-8', newline='') as f:
 
 print(f"Dataset fully encoded and saved to: {encoded_file} and {data_gadget_file}")
 
-# Train-test split (80% train, 20% test)
-# Shuffle rows first using seed (to maintain split consistency)
-random.shuffle(encoded_rows)
-
-split_idx = int(len(encoded_rows) * 0.8)
-train_rows = encoded_rows[:split_idx]
-test_rows = encoded_rows[split_idx:]
+# Train-test split (80% train, 20% test), stratified by target
+targets = [row[-1] for row in encoded_rows]
+train_rows, test_rows = train_test_split(
+    encoded_rows,
+    test_size=0.2,
+    random_state=42,
+    stratify=targets,
+)
 
 # Save train set
 with open(train_file, mode='w', encoding='utf-8', newline='') as f:
