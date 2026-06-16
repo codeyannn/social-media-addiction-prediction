@@ -39,8 +39,8 @@ with col2:
 
 with col3:
     st.subheader("😴 Pola Tidur")
-    sleep_dur = st.selectbox("Durasi Tidur / Hari", [4.0, 6.0, 9.0],
-                             format_func=lambda x: {4.0: "3-5 jam", 6.0: "5-7 jam", 9.0: "> 8 jam"}[x])
+    sleep_dur = st.selectbox("Durasi Tidur / Hari", [2.0, 4.0, 6.0, 9.0],
+                             format_func=lambda x: {2.0: "< 3 jam", 4.0: "3-5 jam", 6.0: "5-7 jam", 9.0: "> 8 jam"}[x])
     sleep_time = st.slider("Jam Tidur (desimal)", 0.0, 24.0, 23.0, 0.5)
     sleep_late = st.selectbox("Tidur Larut Karena Medsos", [0, 1, 2, 3],
                               format_func=lambda x: ["Tidak pernah", "Jarang", "Sering", "Sering sekali"][x])

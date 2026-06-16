@@ -10,6 +10,7 @@ workspace_dir = os.path.dirname(os.path.abspath(__file__))
 input_file = os.path.join(workspace_dir, "Pendataan Seberapa Sering Penggunaan dan Lama pemakaian Gadget Pada Zaman Sekarang (Responses) - Cleaning.csv")
 
 encoded_file = os.path.join(workspace_dir, "encoded_data.csv")
+data_gadget_file = os.path.join(workspace_dir, "data_gadget.csv")
 train_file = os.path.join(workspace_dir, "train.csv")
 test_file = os.path.join(workspace_dir, "test.csv")
 
@@ -42,6 +43,7 @@ app_count_map = {
 
 # 4. Durasi waktu tidur perhari -> Midpoint/representative values
 sleep_dur_map = {
+    '< 3 jam': 2.0,
     '3-5 jam': 4.0,
     '5-7 jam': 6.0,
     '> 8 jam': 9.0
@@ -245,7 +247,12 @@ with open(encoded_file, mode='w', encoding='utf-8', newline='') as f:
     writer.writerow(encoded_header)
     writer.writerows(encoded_rows)
 
-print(f"Dataset fully encoded and saved to: {encoded_file}")
+with open(data_gadget_file, mode='w', encoding='utf-8', newline='') as f:
+    writer = csv.writer(f)
+    writer.writerow(encoded_header)
+    writer.writerows(encoded_rows)
+
+print(f"Dataset fully encoded and saved to: {encoded_file} and {data_gadget_file}")
 
 # Train-test split (80% train, 20% test)
 # Shuffle rows first using seed (to maintain split consistency)

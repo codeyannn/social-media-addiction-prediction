@@ -39,7 +39,7 @@ Usia,Status,Rata_rata_screen_time_perhari,Frekuensi_membuka_HP_perhari,Jumlah_ap
 20,Mahasiswa,4-6 jam,50 - 100,5-6,Tiktok,5-7 jam,22:30,Sering,2,Sulit,Sering,Iya,Iya,Iya,Iya,Tinggi
 16,Pelajar,6-8 jam,20 - 50,3-4,"Instagram, Tiktok",3-5 jam,21:00,Sering,2,Sedang,Sering,Tidak,Iya,Iya,Iya,Sedang
 20,Mahasiswa,6-8 jam,20 - 50,3-4,"X/twitter, Tiktok",5-7 jam,22:30,Sering sekali,3,Sulit,Sering,Iya,Iya,Iya,Iya,Tinggi
-20,Mahasiswa,2-4 jam,20 - 50,3-4,"Instagram, Tiktok",3-5 jam,1:30,Sering,2 -5,Sulit,Jarang,Iya,Iya,Tidak,Iya,Sedang
+20,Mahasiswa,2-4 jam,20 - 50,3-4,"Instagram, Tiktok",3-5 jam,1:30,Sering,3.5,Sulit,Jarang,Iya,Iya,Tidak,Iya,Sedang
 19,Mahasiswa,6-8 jam,20 - 50,1-2,Tiktok,5-7 jam,23:00,Sering,5,Sedang,Jarang,Tidak,Iya,Iya,Tidak,Sedang
 19,Mahasiswa,6-8 jam,50 - 100,3-4,YouTube,5-7 jam,23:00,Sering,4,Sedang,Sering,Iya,Iya,Iya,Iya,Sedang
 20,Mahasiswa,> 8 jam,20 - 50,3-4,"Instagram, X/twitter, Tiktok",3-5 jam,1:00,Sering,1,Sedang,Sering,Iya,Iya,Tidak,Tidak,Sedang
@@ -61,3 +61,41 @@ Usia,Status,Rata_rata_screen_time_perhari,Frekuensi_membuka_HP_perhari,Jumlah_ap
 20,Mahasiswa,6-8 jam,20 - 50,3-4,"Instagram, Tiktok, Youtube",5-7 jam,23:00,Sering,3,Sedang,Sering,Iya,Iya,Tidak,Tidak,Sedang
 20,Mahasiswa,4-6 jam,20 - 50,3-4,"Instagram, Youtube, WhatsApp ",5-7 jam,21:00,Jarang,2,Mudah,Jarang,Iya,Iya,Iya,Iya,Sedang
 20,Mahasiswa,6-8 jam,20 - 50,3-4,"Instagram, Tiktok, Youtube",5-7 jam,23:00,Sering,10,Sedang,Jarang,Tidak,Tidak,Tidak,Tidak,Sedang
+20,Mahasiswa,6-8 jam,50 - 100,5-6,"Instagram, X/twitter, Tiktok, Youtube",> 8 jam,0:00,Sering sekali,6,Sulit sekali,Sering,Iya,Iya,Tidak,Iya,Tinggi
+19,Mahasiswa,4-6 jam,< 20,1-2,Instagram,5-7 jam,0:00,Tidak pernah,6,Sedang,Jarang,Tidak,Iya,Iya,Iya,Sedang
+32,Pekerja,> 8 jam,> 100,> 7,"Instagram, Facebook, X/twitter, Tiktok, Youtube",< 3 jam,3:00,Sering sekali,2,Sangat mudah,Tidak pernah,Tidak,Iya,Iya,Iya,Tinggi
+20,Mahasiswa,> 8 jam,20 - 50,3-4,Instagram,3-5 jam,1:00,Sering,3,Sedang,Sering,Tidak,Iya,Iya,Tidak,Sedang
+19,Mahasiswa,4-6 jam,20 - 50,5-6,"Instagram, Tiktok, Youtube",3-5 jam,0:00,Sering,3,Mudah,Jarang,Iya,Iya,Tidak,Tidak,Sedang
+20,Mahasiswa,4-6 jam,50 - 100,1-2,"Instagram, Tiktok",3-5 jam,0:00,Jarang,6,Mudah,Jarang,Tidak,Iya,Tidak,Tidak,Sedang
+19,Mahasiswa,4-6 jam,20 - 50,3-4,"Instagram, Tiktok, Youtube",5-7 jam,23:00,Jarang,2,Sedang,Jarang,Iya,Tidak,Iya,Iya,Sedang
+20,Mahasiswa,> 8 jam,50 - 100,> 7,"Instagram, Facebook, X/twitter, Tiktok, Youtube",5-7 jam,1:00,Sering,2,Sulit sekali,Sering,Iya,Iya,Iya,Iya,Tinggi
+19,Mahasiswa,> 8 jam,50 - 100,5-6,"Instagram, X/twitter, Tiktok",5-7 jam,0:00,Jarang,5,Mudah,Jarang,Tidak,Iya,Tidak,Tidak,Rendah
+19,Mahasiswa,4-6 jam,20 - 50,3-4,"Instagram, Tiktok, Youtube",5-7 jam,23:00,Sering,4,Sulit,Sering,Iya,Iya,Iya,Iya,Sedang
+19,Mahasiswa,6-8 jam,50 - 100,3-4,"Instagram, Tiktok",3-5 jam,2:00,Sering,4,Mudah,Jarang,Tidak,Iya,Tidak,Tidak,Rendah
+19,Mahasiswa,> 8 jam,< 20,1-2,"Instagram, Youtube",5-7 jam,23:00,Jarang,8,Sulit,Sering,Iya,Tidak,Iya,Iya,Sedang
+18,Mahasiswa,2-4 jam,20 - 50,1-2,"Instagram, Youtube",5-7 jam,22:30,Jarang,4,Sedang,Jarang,Tidak,Tidak,Iya,Iya,Sedang
+18,Mahasiswa,6-8 jam,20 - 50,1-2,"Instagram, Youtube",5-7 jam,22:30,Jarang,3,Sedang,Jarang,Tidak,Iya,Iya,Iya,Sedang
+21,Mahasiswa,6-8 jam,20 - 50,1-2,"Instagram, Youtube",3-5 jam,23:00,Sering,2,Sulit,Sering,Iya,Iya,Iya,Iya,Tinggi
+21,Mahasiswa,2-4 jam,20 - 50,3-4,"Instagram, Tiktok, Youtube",3-5 jam,21:00,Sering,3,Sulit sekali,Jarang,Tidak,Tidak,Iya,Iya,Sedang
+22,Pelajar,4-6 jam,20 - 50,1-2,"Instagram, Tiktok",5-7 jam,0:00,Sering,2,Sedang,Sering,Iya,Iya,Iya,Iya,Sedang
+19,Mahasiswa,4-6 jam,20 - 50,3-4,"Instagram, Tiktok, Youtube",3-5 jam,23:00,Jarang,3,Sulit,Sering sekali,Iya,Iya,Iya,Iya,Tinggi
+19,Mahasiswa,2-4 jam,< 20,1-2,"Instagram, Tiktok",> 8 jam,23:00,Jarang,4,Mudah,Jarang,Tidak,Iya,Tidak,Tidak,Sedang
+19,Mahasiswa,6-8 jam,50 - 100,3-4,"Instagram, X/twitter, Tiktok",> 8 jam,2:00,Sering sekali,2,Sedang,Sering,Tidak,Iya,Tidak,Tidak,Sedang
+20,Mahasiswa,4-6 jam,20 - 50,1-2,"Instagram, Tiktok",> 8 jam,1:00,Sering,3,Sedang,Jarang,Tidak,Tidak,Tidak,Tidak,Sedang
+20,Mahasiswa,< 2 jam,< 20,1-2,"Instagram, Tiktok",5-7 jam,23:00,Jarang,3,Mudah,Jarang,Tidak,Tidak,Tidak,Tidak,Rendah
+20,Mahasiswa,4-6 jam,20 - 50,1-2,"Instagram, Tiktok",5-7 jam,23:00,Sering,2,Sedang,Jarang,Tidak,Tidak,Tidak,Tidak,Sedang
+24,Pekerja,6-8 jam,20 - 50,3-4,"Instagram, Tiktok, Youtube",> 8 jam,1:00,Sering,1,Sedang,Sering,Tidak,Iya,Iya,Iya,Tinggi
+48,Irt,2-4 jam,20 - 50,3-4,"Instagram, Facebook, Tiktok",> 8 jam,21:00,Tidak pernah,2,Sedang,Jarang,Tidak,Tidak,Tidak,Tidak,Rendah
+28,Pekerja,2-4 jam,20 - 50,3-4,"Instagram, Tiktok, Youtube",5-7 jam,21:00,Jarang,2,Sedang,Jarang,Tidak,Tidak,Tidak,Tidak,Rendah
+35,Pekerja,6-8 jam,20 - 50,3-4,"Instagram, Tiktok, Youtube",5-7 jam,23:00,Sering,2,Sedang,Jarang,Tidak,Tidak,Tidak,Tidak,Sedang
+19,Mahasiswa,> 8 jam,20 - 50,5-6,"Instagram, X/twitter, Tiktok, Youtube",5-7 jam,1:00,Sering,1,Sulit,Sering,Iya,Iya,Iya,Tidak,Tinggi
+20,Mahasiswa,6-8 jam,< 20,> 7,"Instagram, Tiktok, Youtube",5-7 jam,1:00,Sering,8,Mudah,Sering,Tidak,Iya,Tidak,Tidak,Rendah
+21,Pelajar,4-6 jam,< 20,1-2,"Instagram, X/twitter, Youtube, Discord",3-5 jam,22:00,Jarang,3,Sedang,Jarang,Tidak,Tidak,Iya,Iya,Sedang
+20,Mahasiswa,> 8 jam,50 - 100,5-6,"Instagram, X/twitter, Youtube",> 8 jam,3:00,Sering sekali,2,Sedang,Sering,Iya,Iya,Iya,Iya,Tinggi
+20,Mahasiswa,6-8 jam,< 20,3-4,"Instagram, Tiktok, Youtube",5-7 jam,0:00,Sering,3,Mudah,Jarang,Tidak,Tidak,Tidak,Tidak,Sedang
+21,Mahasiswa,2-4 jam,20 - 50,1-2,"Instagram, Tiktok",5-7 jam,22:00,Jarang,6,Sedang,Jarang,Tidak,Iya,Tidak,Iya,Sedang
+20,Mahasiswa,2-4 jam,50 - 100,1-2,Instagram,5-7 jam,22:00,Sering sekali,2,Sulit,Sering,Iya,Iya,Iya,Iya,Tinggi
+16,Pelajar,6-8 jam,20 - 50,3-4,"Instagram, Youtube",3-5 jam,22:15,Jarang,1,Sulit,Sering,Iya,Iya,Iya,Iya,Sedang
+16,Pelajar,4-6 jam,20 - 50,1-2,"Instagram, Youtube",> 8 jam,21:30,Sering,8,Mudah,Tidak pernah,Tidak,Iya,Tidak,Tidak,Sedang
+16,Pelajar,4-6 jam,< 20,3-4,"Instagram, Tiktok, Youtube",5-7 jam,0:00,Sering,6,Sedang,Jarang,Tidak,Iya,Tidak,Tidak,Sedang
+18,Pelajar,4-6 jam,20 - 50,3-4,Instagram,5-7 jam,22:00,Jarang,6,Sedang,Sering,Tidak,Iya,Iya,Iya,Sedang
