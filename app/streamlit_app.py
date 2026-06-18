@@ -1,101 +1,116 @@
 import streamlit as st
-import joblib
-import json
-import pandas as pd
+import streamlit.components.v1 as components
 import os
+import sys
+import re
+import socket
+import threading
 
-st.set_page_config(page_title="Prediksi Kecanduan Medsos", page_icon="📱", layout="wide")
-
+# Add parent directory to sys.path to ensure absolute imports work
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-model = joblib.load(os.path.join(BASE_DIR, "best_model.joblib"))
+if BASE_DIR not in sys.path:
+    sys.path.insert(0, BASE_DIR)
 
-with open(os.path.join(BASE_DIR, "model_metadata.json"), "r") as f:
-    metadata = json.load(f)
+# Configure Streamlit page layout
+st.set_page_config(
+    page_title="SocialSenseAI - Analisis Tingkat Kecanduan Media Sosial",
+    page_icon="🔮",
+    layout="wide",
+    initial_sidebar_state="collapsed"
+)
 
-CLASS_NAMES = metadata["class_names"]
-CLASS_COLORS = {"Rendah": "🟢", "Sedang": "🟡", "Tinggi": "🔴"}
+# Helper function to check if a port is in use
+def is_port_in_use(port):
+    try:
+        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+            s.settimeout(1.0)
+            return s.connect_ex(('127.0.0.1', port)) == 0
+    except Exception:
+        return False
 
-st.title("📱 Prediksi Tingkat Kecanduan Media Sosial")
-st.markdown(f"**Model:** {metadata['model_name']} + {metadata['scaler_name']} | "
-            f"**Akurasi:** {metadata['test_accuracy']*100:.1f}% | "
-            f"**F1-Score:** {metadata['test_f1_macro']:.4f}")
-st.divider()
+# Start FastAPI server in a background thread if it is not already running
+def start_api_server():
+    if not is_port_in_use(8000):
+        try:
+            import uvicorn
+            from app.api import app
+            api_thread = threading.Thread(
+                target=lambda: uvicorn.run(app, host="127.0.0.1", port=8000, log_level="warning"),
+                daemon=True
+            )
+            api_thread.start()
+        except Exception as e:
+            # Fallback in case of any start issues
+            pass
 
-col1, col2, col3 = st.columns(3)
+# Initialize the API server
+if "api_started" not in st.session_state:
+    start_api_server()
+    st.session_state["api_started"] = True
 
-with col1:
-    st.subheader("👤 Data Pribadi")
-    usia = st.number_input("Usia", 10, 60, 20)
-    status = st.selectbox("Status", ["Mahasiswa", "Pelajar", "Pekerja"])
+# Helper to read and inline HTML, CSS, and JS
+def get_custom_html(api_url):
+    frontend_dir = os.path.join(os.path.dirname(__file__), "frontend")
+    
+    # Read files with UTF-8 encoding
+    with open(os.path.join(frontend_dir, "index.html"), "r", encoding="utf-8") as f:
+        html = f.read()
+        
+    with open(os.path.join(frontend_dir, "style.css"), "r", encoding="utf-8") as f:
+        css = f.read()
+        
+    with open(os.path.join(frontend_dir, "app.js"), "r", encoding="utf-8") as f:
+        js = f.read()
 
-with col2:
-    st.subheader("📊 Penggunaan Gadget")
-    screen_time = st.selectbox("Screen Time / Hari", [1.0, 3.0, 5.0, 7.0, 10.0],
-                               format_func=lambda x: {1.0: "< 2 jam", 3.0: "2-4 jam", 5.0: "4-6 jam", 7.0: "6-8 jam", 10.0: "> 8 jam"}[x])
-    hp_freq = st.selectbox("Frekuensi Buka HP / Hari", [10.0, 35.0, 75.0, 120.0],
-                           format_func=lambda x: {10.0: "< 20x", 35.0: "20-50x", 75.0: "50-100x", 120.0: "> 100x"}[x])
-    app_count = st.selectbox("Jumlah Aplikasi Medsos", [1.5, 3.5, 5.5, 8.5],
-                             format_func=lambda x: {1.5: "1-2", 3.5: "3-4", 5.5: "5-6", 8.5: "> 7"}[x])
+    # Inline the CSS
+    css_tag = f"<style>\n{css}\n</style>"
+    html = html.replace('<link rel="stylesheet" href="style.css">', css_tag)
+    
+    # Replace API_URL dynamically based on configuration
+    js_override = f'const API_URL = "{api_url}";'
+    js_modified = re.sub(r'const\s+API_URL\s*=\s*["\'][^"\']*["\'];?', js_override, js)
+    
+    # Inline the modified JS
+    js_tag = f"<script>\n{js_modified}\n</script>"
+    html = html.replace('<script src="app.js"></script>', js_tag)
+    
+    return html
 
-with col3:
-    st.subheader("😴 Pola Tidur")
-    sleep_dur = st.selectbox("Durasi Tidur / Hari", [2.0, 4.0, 6.0, 9.0],
-                             format_func=lambda x: {2.0: "< 3 jam", 4.0: "3-5 jam", 6.0: "5-7 jam", 9.0: "> 8 jam"}[x])
-    sleep_time = st.slider("Jam Tidur (desimal)", 0.0, 24.0, 23.0, 0.5)
-    sleep_late = st.selectbox("Tidur Larut Karena Medsos", [0, 1, 2, 3],
-                              format_func=lambda x: ["Tidak pernah", "Jarang", "Sering", "Sering sekali"][x])
+# Get the API URL from Streamlit query params, environment variable, or fallback to localhost
+api_url = "http://127.0.0.1:8000"
+if hasattr(st, "query_params"):
+    api_url = st.query_params.get("api_url", os.getenv("API_URL", "http://127.0.0.1:8000"))
+elif hasattr(st, "experimental_get_query_params"):
+    params = st.experimental_get_query_params()
+    api_url = params.get("api_url", [os.getenv("API_URL", "http://127.0.0.1:8000")])[0]
 
-st.divider()
-col4, col5 = st.columns(2)
+# Inject custom CSS to make Streamlit's iframe occupy the entire viewport
+st.markdown("""
+    <style>
+    /* Hide Streamlit header, footer, and margins */
+    #MainMenu {visibility: hidden;}
+    footer {visibility: hidden;}
+    header {visibility: hidden;}
+    .block-container {
+        padding: 0rem !important;
+        max-width: 100% !important;
+    }
+    iframe {
+        width: 100vw !important;
+        height: 100vh !important;
+        border: none !important;
+        display: block !important;
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        z-index: 999999 !important;
+    }
+    body {
+        overflow: hidden !important;
+    }
+    </style>
+""", unsafe_allow_html=True)
 
-with col4:
-    st.subheader("📚 Fokus & Produktivitas")
-    focus_hours = st.number_input("Jam Belajar/Kerja Fokus / Hari", 0.0, 12.0, 4.0, 0.5)
-    difficulty_focus = st.selectbox("Sulit Fokus Tanpa Cek HP", [0, 1, 2, 3, 4],
-                                   format_func=lambda x: ["Sangat mudah", "Mudah", "Sedang", "Sulit", "Sulit sekali"][x])
-    open_sosmed = st.selectbox("Sering Buka Medsos Saat Belajar/Kerja", [0, 1, 2, 3],
-                               format_func=lambda x: ["Tidak pernah", "Jarang", "Sering", "Sering sekali"][x])
-
-with col5:
-    st.subheader("🧠 Perilaku Digital")
-    cemas = st.selectbox("Cemas Jika Jauh dari HP", ["Tidak", "Iya"])
-    no_purpose = st.selectbox("Buka Medsos Tanpa Tujuan", ["Tidak", "Iya"])
-    disruptive = st.selectbox("Medsos Mengganggu Belajar/Kerja", ["Tidak", "Iya"])
-    try_reduce = st.selectbox("Pernah Coba Kurangi Tapi Gagal", ["Tidak", "Iya"])
-
-st.divider()
-st.subheader("📲 Media Sosial yang Digunakan")
-sosmed_cols = st.columns(7)
-platforms = ["Instagram", "Tiktok", "Youtube", "X/Twitter", "Facebook", "Threads", "WhatsApp"]
-sosmed_vals = []
-for i, platform in enumerate(platforms):
-    with sosmed_cols[i]:
-        sosmed_vals.append(1 if st.checkbox(platform, value=(i < 3)) else 0)
-
-st.divider()
-
-status_enc = [1 if status == "Mahasiswa" else 0, 1 if status == "Pelajar" else 0, 1 if status == "Pekerja" else 0]
-binary_map = {"Iya": 1, "Tidak": 0}
-
-if st.button("🔮 Prediksi", use_container_width=True, type="primary"):
-    features = pd.DataFrame([[
-        usia, screen_time, hp_freq, app_count, sleep_dur, sleep_time,
-        sleep_late, focus_hours, difficulty_focus, open_sosmed,
-        binary_map[cemas], binary_map[no_purpose], binary_map[disruptive], binary_map[try_reduce],
-        *status_enc, *sosmed_vals
-    ]], columns=metadata["feature_names"])
-
-    pred = int(model.predict(features)[0])
-    proba = model.predict_proba(features)[0]
-    class_name = CLASS_NAMES[str(pred)]
-    emoji = CLASS_COLORS[class_name]
-
-    st.divider()
-    r1, r2 = st.columns([1, 2])
-    with r1:
-        st.metric("Hasil Prediksi", f"{emoji} {class_name}")
-        st.caption(f"Confidence: {proba[pred]*100:.1f}%")
-    with r2:
-        st.subheader("Probabilitas per Kelas")
-        chart_data = {f"{CLASS_COLORS[CLASS_NAMES[str(i)]]} {CLASS_NAMES[str(i)]}": float(p) for i, p in enumerate(proba)}
-        st.bar_chart(chart_data)
+# Render the self-contained frontend in an iframe with scrolling
+html_content = get_custom_html(api_url)
+components.html(html_content, height=800, scrolling=True)
