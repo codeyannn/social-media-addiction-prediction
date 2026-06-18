@@ -1,5 +1,4 @@
 import streamlit as st
-import streamlit.components.v1 as components
 import os
 import sys
 import re
@@ -113,4 +112,4 @@ st.markdown("""
 
 # Render the self-contained frontend in an iframe with scrolling
 html_content = get_custom_html(api_url)
-components.html(html_content, height=800, scrolling=True)
+st.iframe(html_content, height=800)
