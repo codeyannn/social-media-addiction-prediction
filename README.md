@@ -113,4 +113,3 @@ streamlit run app/streamlit_app.py
 *Dashboard AI akan otomatis terbuka di browser pada alamat `http://localhost:8501`.*
 
 ---
-**Dibuat dengan ❤️ untuk membantu menganalisis kesehatan digital di era modern.**
