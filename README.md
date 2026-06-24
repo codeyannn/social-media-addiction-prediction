@@ -1,8 +1,32 @@
 # 📱 Prediksi Kecanduan Media Sosial (Social Media Addiction Prediction)
 
-Proyek ini adalah aplikasi Machine Learning end-to-end berbasis Python yang digunakan untuk memprediksi tingkat kecanduan media sosial seseorang (**Rendah**, **Sedang**, atau **Tinggi**) berdasarkan usia, kebiasaan penggunaan gadget, pola tidur, produktivitas, serta perilaku digital.
+![Python](https://img.shields.io/badge/Python-3.8%2B-blue?style=for-the-badge&logo=python&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi)
+![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=Streamlit&logoColor=white)
+![Scikit-Learn](https://img.shields.io/badge/scikit--learn-%23F7931E.svg?style=for-the-badge&logo=scikit-learn&logoColor=white)
+![Machine Learning](https://img.shields.io/badge/Machine%20Learning-Ensemble%20%26%20Stacking-success?style=for-the-badge)
 
-Proyek ini menyediakan pipeline lengkap dari preprocessing data, training model ensemble/stacking, backend API menggunakan **FastAPI**, serta dua pilihan antarmuka pengguna: **HTML Web Interface** dan **Streamlit Dashboard**.
+Aplikasi berbasis **Artificial Intelligence (AI)** dan **Machine Learning (ML)** ini dirancang secara *end-to-end* untuk mendeteksi dan memprediksi tingkat kecanduan media sosial seseorang (**Rendah**, **Sedang**, atau **Tinggi**). Prediksi didasarkan pada berbagai indikator seperti usia, kebiasaan penggunaan gadget, pola tidur, produktivitas, dan perilaku digital secara umum.
+
+Proyek ini menghadirkan *pipeline* kecerdasan buatan yang komprehensif, mulai dari preprocessing data otomatis, seleksi fitur (*Feature Selection*), hingga komparasi berbagai algoritma Machine Learning seperti Random Forest, Gradient Boosting, Support Vector Machine (SVM), dan Stacking Classifier untuk menemukan model yang paling optimal.
+
+---
+
+## 🤖 Highlight AI & Machine Learning
+
+Proyek ini tidak hanya sebatas aplikasi biasa, tetapi mengimplementasikan alur kerja ML profesional:
+
+- **Automated Feature Selection:** Menggunakan `SelectKBest` untuk mengidentifikasi variabel yang paling berpengaruh secara statistik terhadap kecanduan media sosial.
+- **Ensemble & Stacking Modeling:** Mengevaluasi berbagai model klasik hingga modern (seperti *Random Forest*, *Gradient Boosting*, *AdaBoost*, *MLP/Neural Network*) dan menyatukannya dalam *Stacking Classifier* untuk akurasi maksimal.
+- **Cross-Validation & Overfitting Penalty:** Menggunakan teknik validasi silang (Stratified K-Fold) serta sistem penalti metrik untuk memastikan model stabil dan tidak overfitting.
+- **RESTful API Endpoint:** Menghidangkan model ML (melalui `joblib`) menggunakan **FastAPI** agar dapat diakses oleh berbagai jenis antarmuka (Web, Mobile, dll).
+
+---
+
+## 🔒 Privasi dan Keamanan Data
+
+> [!IMPORTANT]
+> Proyek ini dirancang dengan mengutamakan privasi. Kami **TIDAK** menyimpan kredensial sensitif seperti *password*, *email*, nama lengkap pengguna, atau alamat IP ke dalam repositori publik. Data yang digunakan (`data_gadget.csv`, `train.csv`, `test.csv`) murni berupa hasil kuesioner anonim yang telah melalui proses *cleaning* dan hanya berisi data numerik/kategorikal kebiasaan penggunaan gawai. Konfigurasi kredensial (jika diperlukan) disimpan secara lokal melalui `.env` yang tidak akan ter-upload ke Git.
 
 ---
 
@@ -10,53 +34,26 @@ Proyek ini menyediakan pipeline lengkap dari preprocessing data, training model 
 
 ```plaintext
 ├── app/
-│   ├── api.py                    # Backend server FastAPI
-│   ├── streamlit_app.py          # Dashboard interaktif berbasis Streamlit
+│   ├── api.py                    # ⚡ Backend server FastAPI (Inference ML)
+│   ├── streamlit_app.py          # 📊 Dashboard interaktif berbasis Streamlit
 │   └── frontend/
-│       ├── index.html            # Antarmuka web utama (HTML)
-│       ├── style.css             # Desain gaya visual (CSS)
-│       └── app.js                # Pengontrol interaksi frontend & fetch API
+│       ├── index.html            # 🌐 Antarmuka web utama (HTML)
+│       ├── style.css             # 🎨 Desain gaya visual (CSS)
+│       └── app.js                # ⚙️ Pengontrol interaksi frontend & fetch API
 │
-├── clean_data.py                 # Skrip preprocessing dan encoding data
-├── model.py                      # Skrip pelatihan, evaluasi, dan pemilihan model ML
+├── clean_data.py                 # 🧹 Skrip preprocessing dan encoding data
+├── model.py                      # 🧠 Skrip pelatihan, evaluasi, & seleksi model ML
 │
-├── Pendataan Seberapa Sering...  # File data respon mentah (.csv)
-├── data_gadget.csv               # Data hasil pembersihan (.csv)
-├── encoded_data.csv              # Data hasil encoding (.csv)
-├── train.csv                     # Data latih (.csv)
-├── test.csv                      # Data uji (.csv)
-├── best_model.joblib             # Model terbaik yang disimpan (.joblib)
-├── model_metadata.json           # Metadata model dan nama fitur terpilih
-├── .env.example                  # Template konfigurasi environment variables
-├── requirements.txt              # Daftar dependensi library Python
-└── README.md                     # Dokumentasi proyek
+├── data_gadget.csv               # 📄 Data hasil pembersihan (.csv)
+├── best_model.joblib             # 📦 Model Machine Learning terbaik (.joblib)
+├── model_metadata.json           # 📈 Metadata model & metrik evaluasi
+├── .env.example                  # ⚙️ Template konfigurasi (tanpa data sensitif)
+└── requirements.txt              # 📚 Daftar dependensi library Python
 ```
 
 ---
 
-## 📋 File yang Perlu Disiapkan (Tidak Terbawa/Diabaikan Git)
-
-Saat pertama kali melakukan `git clone`, ada beberapa file yang **tidak terbawa** (karena terdaftar di `.gitignore` atau merupakan berkas lingkungan lokal Anda). Anda perlu menyiapkan file-file berikut sebelum menjalankan proyek:
-
-### 1. File Konfigurasi `.env`
-File ini digunakan untuk menyimpan pengaturan port dan host aplikasi.
-* **Cara menyiapkan:** Salin file `.env.example` dan ubah namanya menjadi `.env` di folder root proyek Anda.
-* **Isi default `.env`:**
-  ```env
-  API_HOST=0.0.0.0
-  API_PORT=8000
-  DEBUG_MODE=True
-  STREAMLIT_PORT=8501
-  STREAMLIT_SERVER_ADDRESS=localhost
-  ```
-
-### 2. Virtual Environment (`venv/` atau `.venv/`)
-Folder ini menyimpan semua pustaka python yang diinstal secara lokal agar tidak bentrok dengan pustaka sistem Anda.
-* **Cara membuat:** Jalankan perintah `python -m venv venv` di terminal Anda.
-
----
-
-## ⚡ Langkah-Langkah Menjalankan Proyek
+## ⚡ Cara Instalasi dan Penggunaan
 
 ### 1. Clone & Masuk ke Folder Proyek
 ```bash
@@ -64,7 +61,11 @@ git clone <url-repository-anda>
 cd social-media-addiction-prediction
 ```
 
-### 2. Siapkan Virtual Environment & Aktifkan
+### 2. Persiapkan File Konfigurasi (Opsional)
+Salin `.env.example` menjadi `.env` jika ingin mengubah konfigurasi host/port.
+*(Tidak ada informasi sensitif seperti password/IP yang akan ter-push ke GitHub karena `.env` sudah masuk dalam `.gitignore`)*.
+
+### 3. Siapkan Virtual Environment & Aktifkan
 * **Windows (PowerShell):**
   ```powershell
   python -m venv venv
@@ -76,38 +77,40 @@ cd social-media-addiction-prediction
   source venv/bin/activate
   ```
 
-### 3. Instalasi Dependensi (Library)
-Instal semua pustaka Python yang dibutuhkan oleh proyek menggunakan file `requirements.txt`:
+### 4. Instalasi Dependensi (Library)
 ```bash
 pip install -r requirements.txt
 ```
 
-### 4. Jalankan Preprocessing & Training Model (Opsional)
-Jika Anda memiliki data kuesioner baru di file `Pendataan... - Cleaning.csv` dan ingin melatih ulang model:
+### 5. Jalankan Preprocessing & Training ML Pipeline (Opsional)
+Ingin melatih AI Anda sendiri dengan data baru?
 ```bash
-# 1. Bersihkan dan encode data baru
+# 1. Bersihkan dan encode data
 python clean_data.py
 
-# 2. Latih model dan simpan best_model.joblib
+# 2. Latih berbagai model ML dan cari yang terbaik secara otomatis
 python model.py
 ```
 
-### 5. Jalankan Antarmuka Aplikasi
+### 6. 🚀 Jalankan Aplikasi!
 
-Anda bisa memilih salah satu dari dua antarmuka berikut untuk melakukan prediksi:
+Anda bisa memilih salah satu dari dua antarmuka interaktif:
 
 #### Opsi A: Backend FastAPI + Frontend HTML Web (Rekomendasi)
 1. **Jalankan API Server (Backend):**
    ```bash
    uvicorn app.api:app --reload
    ```
-   *API backend akan berjalan pada `http://localhost:8000`.*
+   *AI Backend akan siap menerima permintaan di `http://localhost:8000`.*
 2. **Buka Frontend Web:**
-   Buka file `app/frontend/index.html` secara langsung di browser Anda, atau gunakan extension VS Code seperti *Live Server*.
+   Buka file `app/frontend/index.html` secara langsung di browser, atau gunakan extension VS Code seperti *Live Server*.
 
-#### Opsi B: Streamlit Dashboard
-Jalankan perintah berikut untuk menjalankan dashboard visual Streamlit:
+#### Opsi B: Streamlit Dashboard Interaktif
+Bagi Anda yang lebih suka visualisasi Data Science:
 ```bash
 streamlit run app/streamlit_app.py
 ```
-*Aplikasi akan otomatis terbuka di browser Anda pada alamat `http://localhost:8501`.*
+*Dashboard AI akan otomatis terbuka di browser pada alamat `http://localhost:8501`.*
+
+---
+**Dibuat dengan ❤️ untuk membantu menganalisis kesehatan digital di era modern.**
